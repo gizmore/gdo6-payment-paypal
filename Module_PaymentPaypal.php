@@ -2,11 +2,11 @@
 namespace GDO\PaymentPaypal;
 
 use GDO\Payment\PaymentModule;
-use GDO\Type\GDO_Checkbox;
-use GDO\Type\GDO_Int;
-use GDO\Type\GDO_Secret;
-use GDO\Type\GDO_String;
-use GDO\UI\GDO_Divider;
+use GDO\Type\GDT_Checkbox;
+use GDO\Type\GDT_Int;
+use GDO\Type\GDT_Secret;
+use GDO\Type\GDT_String;
+use GDO\UI\GDT_Divider;
 
 final class Module_PaymentPaypal extends PaymentModule
 {
@@ -14,15 +14,15 @@ final class Module_PaymentPaypal extends PaymentModule
 	public function getConfig()
 	{
 		return array_merge(parent::getConfig(), array(
-			GDO_Divider::make('paypal_api_settings'),
-			GDO_Checkbox::make('paypal_api_sandbox')->initial('1'),
-			GDO_Secret::make('paypal_api_username')->initial('CBusch1980_api1.gmx.de'),
-		    GDO_Secret::make('paypal_api_password')->initial('ECL83PUVR4CF2LU3'),
-		    GDO_Secret::make('paypal_api_signature')->initial('An5ns1Kso7MWUdW4ErQKJJJ4qi4-AKKoQTrZVr51cIn6b.aMsI-4t2xg'),
-			GDO_Divider::make('paypal_proxy_settings'),
-			GDO_Checkbox::make('paypal_proxy')->initial('0'),
-			GDO_String::make('paypal_proxy_host')->ascii()->caseS()->initial('127.0.0.1'),
-			GDO_Int::make('paypal_proxy_port')->unsigned()->min(1)->max(65535)->initial('8080'),
+			GDT_Divider::make('paypal_api_settings'),
+			GDT_Checkbox::make('paypal_api_sandbox')->initial('1'),
+			GDT_Secret::make('paypal_api_username')->initial('CBusch1980_api1.gmx.de'),
+		    GDT_Secret::make('paypal_api_password')->initial('ECL83PUVR4CF2LU3'),
+		    GDT_Secret::make('paypal_api_signature')->initial('An5ns1Kso7MWUdW4ErQKJJJ4qi4-AKKoQTrZVr51cIn6b.aMsI-4t2xg'),
+			GDT_Divider::make('paypal_proxy_settings'),
+			GDT_Checkbox::make('paypal_proxy')->initial('0'),
+			GDT_String::make('paypal_proxy_host')->ascii()->caseS()->initial('127.0.0.1'),
+			GDT_Int::make('paypal_proxy_port')->unsigned()->min(1)->max(65535)->initial('8080'),
 		));
 	}
 	public function cfgSandbox() { return $this->getConfigValue('paypal_api_sandbox'); }

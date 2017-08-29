@@ -3,7 +3,7 @@ namespace GDO\PaymentPaypal\Method;
 
 use GDO\Core\Website;
 use GDO\Language\Trans;
-use GDO\Payment\GDO_Money;
+use GDO\Payment\GDT_Money;
 use GDO\Payment\MethodPayment;
 use GDO\Payment\Order;
 use GDO\PaymentPaypal\Module_PaymentPaypal;
@@ -50,7 +50,7 @@ final class InitPayment extends MethodPayment
 		 */
 		$paymentAmount = round($order->getPrice(), 2);
 		$paymentType = "Sale";
-		$currencyCodeType = GDO_Money::$CURRENCY;
+		$currencyCodeType = GDT_Money::$CURRENCY;
 		$nvpstr = "&Amt=$paymentAmount".
 				"&PAYMENTACTION=$paymentType".
 				"&ReturnUrl=$successURL".
