@@ -3,7 +3,7 @@ namespace GDO\PaymentPaypal\Method;
 
 use GDO\Payment\MethodPayment;
 use GDO\Payment\Module_Payment;
-use GDO\Payment\Order;
+use GDO\Payment\GDO_Order;
 use GDO\PaymentPaypal\Paypal_Util;
 use GDO\Util\Common;
 
@@ -13,11 +13,11 @@ final class ConfirmCheckout2 extends MethodPayment
 	{
 		$mp = Module_Payment::instance();
 		
-		if (false === ($gwf_token = Common::getPost('gwf_token'))) {
+		if (false === ($gdo_token = Common::getPost('gdo_token'))) {
 			return $mp->error('err_token');
 		}
 		
-		if (false === ($order = Order::getByToken($gwf_token))) {
+		if (false === ($order = GDO_Order::getByToken($gdo_token))) {
 			return $mp->error('err_order');
 		}
 		

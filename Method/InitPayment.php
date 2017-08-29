@@ -5,7 +5,7 @@ use GDO\Core\Website;
 use GDO\Language\Trans;
 use GDO\Payment\GDT_Money;
 use GDO\Payment\MethodPayment;
-use GDO\Payment\Order;
+use GDO\Payment\GDO_Order;
 use GDO\PaymentPaypal\Module_PaymentPaypal;
 use GDO\PaymentPaypal\Paypal_Util;
 
@@ -20,7 +20,7 @@ final class InitPayment extends MethodPayment
 		return $this->initCheckout($order);
 	}
 
-	private function initCheckout(Order $order)
+	private function initCheckout(GDO_Order $order)
 	{
 		Module_PaymentPaypal::instance()->includePaypal();
 		

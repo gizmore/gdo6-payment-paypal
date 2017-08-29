@@ -2,7 +2,7 @@
 namespace GDO\PaymentPaypal\Method;
 
 use GDO\Payment\MethodPayment;
-use GDO\Payment\Order;
+use GDO\Payment\GDO_Order;
 use GDO\PaymentPaypal\Paypal_Util;
 use GDO\Util\Common;
 /**
@@ -20,7 +20,7 @@ final class ConfirmCheckout extends MethodPayment
 	public function execute()
 	{
 		$paypaltoken = Common::getGetString("token");
-		if ( (!($order = Order::table()->getById(Common::getGetString('id')))) ||
+		if ( (!($order = GDO_Order::table()->getById(Common::getGetString('id')))) ||
 				($order->getXToken() !== $paypaltoken) )
 		{
 			return $this->error('err_order');
@@ -49,7 +49,7 @@ final class ConfirmCheckout extends MethodPayment
 		}
 	}
 	
-	private function templateButton(Order $order)
+	private function templateButton(GDO_Order $order)
 	{
 		return $this->templatePHP('paybutton.php', ['order' => $order]);
 	}
