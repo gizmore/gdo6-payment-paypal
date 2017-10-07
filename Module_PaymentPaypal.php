@@ -2,10 +2,10 @@
 namespace GDO\PaymentPaypal;
 
 use GDO\Payment\PaymentModule;
-use GDO\Type\GDT_Checkbox;
-use GDO\Type\GDT_Int;
-use GDO\Type\GDT_Secret;
-use GDO\Type\GDT_String;
+use GDO\DB\GDT_Checkbox;
+use GDO\DB\GDT_Int;
+use GDO\Core\GDT_Secret;
+use GDO\DB\GDT_String;
 use GDO\UI\GDT_Divider;
 
 final class Module_PaymentPaypal extends PaymentModule
