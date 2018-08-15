@@ -48,8 +48,8 @@ final class ConfirmCheckout2 extends MethodPayment
 		$nvpstr = '&TOKEN='.$token.'&PAYERID='.$payerID.'&PAYMENTACTION='.$paymentType.'&AMT='.$paymentAmount.'&CURRENCYCODE='.$currCodeType.'&IPADDRESS='.$serverName ;
 		$nvpstr .= "&ITEMAMT=".$paymentAmount."&L_QTY0=1"."&L_NAME0=".urlencode($order->getOrderDescrAdmin())."&L_AMT0=".$paymentAmount;	
 		 /* Make the call to PayPal to finalize payment
-	    	If an error occured, show the resulting errors
-	    */
+			If an error occured, show the resulting errors
+		*/
 		$resArray = Paypal_Util::hash_call('DoExpressCheckoutPayment', $nvpstr);
 	
 		/* Display the API response back to the browser.

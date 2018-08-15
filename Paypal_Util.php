@@ -24,7 +24,7 @@ final class Paypal_Util
 	
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
 		curl_setopt($ch, CURLOPT_POST, 1);
-	    //if USE_PROXY constant set to TRUE in Constants.php, then only proxy will be enabled.
+		//if USE_PROXY constant set to TRUE in Constants.php, then only proxy will be enabled.
 	   //Set proxy name to PROXY_HOST and port number to PROXY_PORT in constants.php 
 		if(PAYPAL_USE_PROXY)
 		{
@@ -81,8 +81,8 @@ final class Paypal_Util
 			//decoding the respose
 			$nvpArray[urldecode($keyval)] = urldecode( $valval);
 			$nvpstr = substr($nvpstr,$valuepos+1,strlen($nvpstr));
-	     }
-	     
+		 }
+		 
 		return $nvpArray;
 	}
 	
@@ -92,7 +92,7 @@ final class Paypal_Util
 		$count=0;
 		while (isset($resArray["L_SHORTMESSAGE".$count]))
 		{
-			$errorCode    = $resArray["L_ERRORCODE".$count];
+			$errorCode	= $resArray["L_ERRORCODE".$count];
 			$shortMessage = $resArray["L_SHORTMESSAGE".$count];
 			$longMessage  = $resArray["L_LONGMESSAGE".$count]; 
 			$count++;
