@@ -42,7 +42,7 @@ final class Paypal_Util
 	
 		//convrting NVPResponse to an Associative Array
 		$nvpResArray = self::deformatNVP($response);
-		$nvpReqArray = self::deformatNVP($nvpreq);
+// 		$nvpReqArray = self::deformatNVP($nvpreq);
 
 		if (curl_errno($ch))
 		{
@@ -102,18 +102,18 @@ final class Paypal_Util
 		return GDT_Error::with('err_paypal', [$back]);
 	}
 	
-	public static function checkPaypalErrorCode($code)
-	{
-		$count=0;
-		while (isset($resArray["L_SHORTMESSAGE".$count]))
-		{
-			if ($resArray["L_ERRORCODE".$count] == $code)
-			{
-				return true;
-			}
-		}
-		return false;
-	}
+// 	public static function checkPaypalErrorCode($code)
+// 	{
+// 		$count=0;
+// 		while (isset($resArray["L_SHORTMESSAGE".$count]))
+// 		{
+// 			if ($resArray["L_ERRORCODE".$count] == $code)
+// 			{
+// 				return true;
+// 			}
+// 		}
+// 		return false;
+// 	}
 	
 	public static function logResArray(array $resArray)
 	{

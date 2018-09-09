@@ -46,6 +46,6 @@ final class Module_PaymentPaypal extends PaymentModule
 		define('PAYPAL_USE_PROXY', $this->cfgProxy());
 		define('PAYPAL_PROXY_HOST', $this->cfgProxyHost());
 		define('PAYPAL_PROXY_PORT', $this->cfgProxyPort());
-		$this->includeClass('Paypal_Util');
+		require $this->filePath('Paypal_Util.php');
 	}
 }
