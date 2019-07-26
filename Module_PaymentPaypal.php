@@ -10,6 +10,8 @@ use GDO\UI\GDT_Divider;
 
 final class Module_PaymentPaypal extends PaymentModule
 {
+	public function getDependencies() { return ['Payment']; }
+	
 	public function onLoadLanguage() { $this->loadLanguage('lang/paypal'); }
 	public function getConfig()
 	{
