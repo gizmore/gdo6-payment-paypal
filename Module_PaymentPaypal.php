@@ -7,6 +7,10 @@ use GDO\DB\GDT_Int;
 use GDO\Core\GDT_Secret;
 use GDO\DB\GDT_String;
 use GDO\UI\GDT_Divider;
+use GDO\Util\Common;
+use GDO\Payment\GDO_Order;
+use GDO\DB\Database;
+use GDO\Core\GDO;
 
 final class Module_PaymentPaypal extends PaymentModule
 {
@@ -49,5 +53,14 @@ final class Module_PaymentPaypal extends PaymentModule
 		define('PAYPAL_PROXY_HOST', $this->cfgProxyHost());
 		define('PAYPAL_PROXY_PORT', $this->cfgProxyPort());
 		require $this->filePath('Paypal_Util.php');
+	}
+	
+	public function hookCancelOrder()
+	{
+		if ($token = Common::getGetString('token'))
+		{
+			$token = GDO::escapeS($token);
+			GDO_Order::table()->deleteWhere("order_xtoken='$token'");
+		}
 	}
 }
