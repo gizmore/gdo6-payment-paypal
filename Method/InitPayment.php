@@ -13,7 +13,7 @@ final class InitPayment extends MethodPayment
 {
 	public function execute()
 	{
-		if (!($order = $this->getOrderPersisted()))
+		if (!($order = $this->getOrder()))
 		{
 			return $this->error('err_order');
 		}
@@ -71,7 +71,7 @@ final class InitPayment extends MethodPayment
 		{
 			// Redirect to paypal.com here
 			$token = urldecode($resArray["TOKEN"]);
-			$order->saveVar('order_xtoken', $token);
+// 			$order->saveVar('order_xtoken', $token);
 			return Website::redirect(PAYPAL_URL . $token);
 		}
 		else

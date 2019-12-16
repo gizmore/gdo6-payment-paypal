@@ -55,12 +55,12 @@ final class Module_PaymentPaypal extends PaymentModule
 		require $this->filePath('Paypal_Util.php');
 	}
 	
-	public function hookCancelOrder()
-	{
-		if ($token = Common::getGetString('token'))
-		{
-			$token = GDO::escapeS($token);
-			GDO_Order::table()->deleteWhere("order_xtoken='$token'");
-		}
-	}
+// 	public function hookCancelOrder()
+// 	{
+// 		if ($token = Common::getGetString('token'))
+// 		{
+// 			$token = GDO::escapeS($token);
+// 			GDO_Order::table()->deleteWhere("order_xtoken='$token'");
+// 		}
+// 	}
 }

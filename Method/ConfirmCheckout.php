@@ -20,7 +20,7 @@ final class ConfirmCheckout extends MethodPayment
 	public function execute()
 	{
 		$paypaltoken = Common::getGetString("token");
-		if ( (!($order = GDO_Order::table()->getById(Common::getGetString('id')))) ||
+		if ( (!($order = $this->getOrderPersisted())) ||
 				($order->getXToken() !== $paypaltoken) )
 		{
 			return $this->error('err_order');
