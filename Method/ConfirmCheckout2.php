@@ -63,7 +63,6 @@ final class ConfirmCheckout2 extends MethodPayment
 		}
 		
 		// Get Payment module;
-		$mp = Module_Payment::instance();
 		$module2 = $order->getOrderModule();
 		$module2->onLoadLanguage();
 		
