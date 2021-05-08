@@ -41,7 +41,7 @@ final class ConfirmCheckout extends MethodPayment
 		if($ack === "SUCCESS")
 		{
 			$order->saveVar('order_xtoken', serialize($resArray));
-			$this->renderOrder($order)->add($this->templateButton());
+			$this->renderOrder($order)->addField($this->templateButton());
 		}
 		else
 		{
