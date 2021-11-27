@@ -19,7 +19,7 @@ final class ConfirmCheckout extends MethodPayment
 	
 	public function execute()
 	{
-		$paypaltoken = Common::getGetString("token");
+		$paypaltoken = Common::getRequestString("token");
 		if ( (!($order = $this->getOrderPersisted())) ||
 				($order->getXToken() !== $paypaltoken) )
 		{
